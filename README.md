@@ -1,60 +1,105 @@
-# 🌍 Air Quality and Air Pollution Analysis
+# 🌍 Air Quality & Air Pollution Data Analysis Project
 
-## 📘 Overview
-This project focuses on analyzing **air quality and pollution levels** across multiple Indian cities to understand key pollutants, seasonal variations, and overall air quality trends.  
-Using **Python-based data analytics**, the goal is to derive actionable insights that can support environmental monitoring and public health awareness.
+## 📌 Project Overview
+This project focuses on **data cleaning, exploratory data analysis (EDA), and insights generation**
+from an air quality and air pollution dataset. The goal is to convert raw, incomplete data into a
+**clean, analysis-ready dataset** and derive meaningful insights.
+
+This project demonstrates practical **Data Analyst skills** such as data preprocessing,
+handling missing values, and domain-driven decision making.
 
 ---
 
 ## 🎯 Objectives
-- Clean and preprocess large-scale air quality datasets.
-- Analyze pollutant levels and Air Quality Index (AQI) trends.
-- Identify the most affected cities and potential causes.
-- Visualize pollution distribution and seasonal patterns.
+- Clean and preprocess air pollution data
+- Handle missing values using statistical and rule-based methods
+- Perform exploratory data analysis (EDA)
+- Analyze air quality patterns across cities
+- Prepare a final cleaned dataset for analysis or modeling
 
 ---
 
-## 🧰 Tools & Technologies
-- **Programming Language:** Python  
-- **Libraries Used:** Pandas, NumPy, Matplotlib  
-- **Environment:** Jupyter Notebook  
-- **Dataset:** City Day Air Quality Dataset (India)
+## 🗂️ Dataset Description
+The dataset includes air quality measurements from multiple cities with the following features:
+
+- City  
+- Date  
+- PM2.5, PM10  
+- NO, NO2, NOx  
+- NH3, CO, SO2, O3  
+- Benzene, Toluene, Xylene  
+- AQI (Air Quality Index)  
+- AQI_Bucket (Air Quality Category)
 
 ---
 
-## 🧹 Data Cleaning & Preprocessing
-- Loaded the dataset using **Pandas**.
-- Removed **duplicates** and handled **missing values**.
-- Filled missing pollutant values using **median imputation** (city-wise approach).
-- Converted the `Date` column into **datetime format** and extracted:
-  - `Year`
-  - `Month`
-  - `Day`
-- Ensured data consistency and completeness for analysis.
+## 🧹 Data Cleaning Process
+
+### 1. Missing Value Analysis
+- Calculated missing value counts and percentages
+- Identified columns with high missing values (PM10, NH3, AQI_Bucket)
+
+### 2. Numerical Feature Imputation
+- Applied **city-wise median imputation** to preserve local pollution patterns
+- Used **global median fallback** when city-level data was completely missing
+
+### 3. AQI_Bucket Handling (Categorical)
+- Avoided statistical imputation
+- Used **rule-based classification** based on AQI values
+- AQI categories assigned using CPCB standards:
+  - 0–50 → Good
+  - 51–100 → Moderate
+  - 101–200 → Satisfactory
+  - 201–300 → Poor
+  - 301–400 → Very Poor
+  - >400 → Severe
+
+### 4. Data Validation
+- Verified missing values after cleaning
+- Ensured consistency between AQI and AQI_Bucket
 
 ---
 
 ## 📊 Exploratory Data Analysis (EDA)
-### Key Analysis Steps
-- Examined the distribution of pollutants such as:
-  - **PM2.5**, **PM10**, **NO**, **NO2**, **NOx**, **NH3**, **CO**, **SO2**, **O3**, and **AQI**.
-- Plotted **histograms** to understand pollution concentration levels.
-- Analyzed **city-wise averages** of key pollutants.
-- Explored **AQI buckets** to identify the proportion of "Good", "Moderate", and "Poor" air quality days.
-- Observed **time-based variations** in pollution levels.
+- Distribution analysis of pollutant levels
+- Identification of skewed features
+- AQI comparison across different cities
+- Pattern recognition in air pollution data
 
 ---
 
-## 📈 Visualizations
-- **Distribution Graphs:** Showed frequency of pollutant levels.
-- **City-wise Bar Charts:** Compared average pollutant concentrations across cities.
-- **AQI Trend Analysis:** Displayed changes in air quality over time.
+## 🛠️ Tools & Technologies Used
+- Python
+- Pandas
+- NumPy
+- Matplotlib / Seaborn
+- Jupyter Notebook
+- Git & GitHub
 
-Sample Visualization:
-```python
-df.groupby("City")[['PM2.5','PM10','NO2','O3']].mean().plot(kind='bar', figsize=(12,6))
-plt.title('Average Pollution Level per City')
-plt.xlabel('City')
-plt.ylabel('Average Pollutant Level')
-plt.grid()
-plt.show()
+---
+
+## 📌 Key Learnings
+- Real-world datasets require multi-level missing value strategies
+- Domain knowledge is crucial for categorical feature handling
+- City-wise grouping improves imputation accuracy
+- Clean data leads to reliable insights
+
+---
+
+## 🚀 How to Use This Project
+1. Clone the repository
+2. Open the Jupyter Notebook
+3. Run all cells sequentially
+4. Explore EDA results and cleaned dataset
+
+---
+
+## 👤 Author
+**Sanjai CR**  
+Aspiring Data Analyst  
+Skills: Python | SQL | Machine Learning | Power BI | Tableau | Excel | AI
+
+---
+
+## ⭐ If you like this project
+Please ⭐ the repository and feel free to connect!
